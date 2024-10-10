@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.14)
+project(QtSimpleWindow)
+
+# Establece el estándar de C++
+set(CMAKE_CXX_STANDARD 17)
+
+# Define la ruta de Qt (modifica según tu instalación)
+set(CMAKE_PREFIX_PATH "C:/Qt/6.7.2/mingw_64/lib/cmake")
+
+# Activa las herramientas automáticas de Qt
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
+# Busca los módulos necesarios de Qt (Widgets para la ventana)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
+
+# Añade el ejecutable principal del proyecto
+add_executable(QtSimpleWindow main.cpp)
+
+# Enlaza las bibliotecas de Qt necesarias
+target_link_libraries(QtSimpleWindow Qt6::Widgets)
