@@ -224,6 +224,7 @@ D:/Personal/cmake-build-debug/Personal_autogen/EWIEGA46WW/moc_Tank.cpp: D:/Perso
   C:/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
@@ -291,25 +292,37 @@ D:/Personal/cmake-build-debug/Personal_autogen/EWIEGA46WW/moc_Tank.cpp: D:/Perso
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/QPixmap \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qcolor.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qcursor.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qimage.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
@@ -318,9 +331,14 @@ D:/Personal/cmake-build-debug/Personal_autogen/EWIEGA46WW/moc_Tank.cpp: D:/Perso
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
   D:/Personal/GridGraph.h

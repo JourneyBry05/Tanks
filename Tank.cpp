@@ -1,9 +1,14 @@
 #include "Tank.h"
 #include "Pathfinding.h"
+#include "PathfindingBFS.h"
 #include <QtWidgets/QGraphicsScene>
 #include <QRandomGenerator>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
+#include <QThread>
+#include <QApplication>
+
+extern std::vector<QGraphicsLineItem*> routeLines;  // Declaración externa para usar la variable global
 
 Tank::Tank(int health, const QString &imagePath) : health(health), pixmap(imagePath) {
     if (pixmap.isNull()) {
@@ -25,9 +30,9 @@ void Tank::display(QGraphicsScene &scene, int row, int col, int cellWidth, int c
 
 void Tank::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     emit tankSelected(this);
-    qDebug() << "Tanque seleccionado en posición (" << currentRow << "," << currentCol << ")";  // Mensaje de depuración
+    qDebug() << "Tanque seleccionado en posición (" << currentRow << "," << currentCol << ")";
 
-    // Además, mostrar las coordenadas del clic en la escena
+    // Mostrar las coordenadas del clic en la escena
     QPointF clickPos = event->scenePos();
     qDebug() << "Coordenadas del clic: (" << clickPos.x() << "," << clickPos.y() << ")";
 
@@ -35,7 +40,7 @@ void Tank::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     QGraphicsPixmapItem::mousePressEvent(event);
 }
 
-void Tank::moveTo(GridGraph &graph, int targetRow, int targetCol, QGraphicsScene &scene, int cellWidth, int cellHeight) {
+void Tank::moveTo(GridGraph &graph, int targetRow, int targetCol, QGraphicsScene &scene, int cellWidth, int cellHeight, bool useBFS) {
     int startNode = currentRow * graph.getCols() + currentCol;
     int targetNode = targetRow * graph.getCols() + targetCol;
 
@@ -44,23 +49,12 @@ void Tank::moveTo(GridGraph &graph, int targetRow, int targetCol, QGraphicsScene
         return;
     }
 
-    // Probabilidad para usar Dijkstra (80%) o movimiento aleatorio (20%)
-    if (QRandomGenerator::global()->bounded(100) < 80) {
-        qDebug() << "Usando Dijkstra para mover el tanque.";
-        std::vector<int> path = Pathfinding::dijkstra(graph, startNode, targetNode);
+    std::vector<int> path;
 
-        if (path.empty()) {
-            qDebug() << "No se encontró una ruta válida con Dijkstra";
-            return;
-        }
-
-        for (int i = 1; i < path.size(); ++i) {
-            int nextNode = path[i];
-            int nextRow = nextNode / graph.getCols();
-            int nextCol = nextNode % graph.getCols();
-            qDebug() << "Moviendo a (" << nextRow << "," << nextCol << ")";
-            this->display(scene, nextRow, nextCol, cellWidth, cellHeight);
-        }
+    // Selección del algoritmo (50% BFS o 50% Aleatorio)
+    if (useBFS) {
+        qDebug() << "Usando BFS para mover el tanque.";
+        path = PathfindingBFS::bfs(graph, startNode, targetNode);
     } else {
         qDebug() << "Usando movimiento aleatorio.";
         int randomRow, randomCol;
@@ -78,7 +72,8 @@ void Tank::moveTo(GridGraph &graph, int targetRow, int targetCol, QGraphicsScene
                 !graph.isObstacle(randomRow, randomCol)) {
 
                 qDebug() << "Moviendo a posición aleatoria (" << randomRow << "," << randomCol << ")";
-                this->display(scene, randomRow, randomCol, cellWidth, cellHeight);
+                targetRow = randomRow;
+                targetCol = randomCol;
                 moved = true;
                 break;
             }
@@ -86,9 +81,29 @@ void Tank::moveTo(GridGraph &graph, int targetRow, int targetCol, QGraphicsScene
 
         if (!moved) {
             qDebug() << "No se encontró una posición válida para moverse aleatoriamente.";
+            return;
         }
     }
 
-    currentRow = targetRow;
-    currentCol = targetCol;
+    // Mover el tanque paso a paso siguiendo la ruta calculada
+    if (!path.empty()) {
+        for (size_t i = 1; i < path.size(); ++i) {
+            int nextNode = path[i];
+            int nextRow = nextNode / graph.getCols();
+            int nextCol = nextNode % graph.getCols();
+
+            qDebug() << "Moviendo a (" << nextRow << "," << nextCol << ")";
+
+            // Actualizar la posición del tanque en la escena
+            this->display(scene, nextRow, nextCol, cellWidth, cellHeight);
+
+            // Esperar un corto período para que el movimiento sea visible (simulando animación)
+            QThread::msleep(200);
+            QApplication::processEvents();
+        }
+
+        // Actualizar la posición actual del tanque
+        currentRow = targetRow;
+        currentCol = targetCol;
+    }
 }

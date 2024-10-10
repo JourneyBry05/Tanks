@@ -97,6 +97,14 @@ build CMakeFiles/Personal.dir/CustomView.cpp.obj: CXX_COMPILER__Personal_unscann
   OBJECT_DIR = CMakeFiles\Personal.dir
   OBJECT_FILE_DIR = CMakeFiles\Personal.dir
 
+build CMakeFiles/Personal.dir/PathfindingBFS.cpp.obj: CXX_COMPILER__Personal_unscanned_Debug D$:/Personal/PathfindingBFS.cpp || cmake_object_order_depends_target_Personal
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Personal.dir\PathfindingBFS.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/Personal -isystem D:/Personal/cmake-build-debug/Personal_autogen/include -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\Personal.dir
+  OBJECT_FILE_DIR = CMakeFiles\Personal.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Personal
@@ -105,7 +113,7 @@ build CMakeFiles/Personal.dir/CustomView.cpp.obj: CXX_COMPILER__Personal_unscann
 #############################################
 # Link the executable Personal.exe
 
-build Personal.exe: CXX_EXECUTABLE_LINKER__Personal_Debug CMakeFiles/Personal.dir/Personal_autogen/mocs_compilation.cpp.obj CMakeFiles/Personal.dir/main.cpp.obj CMakeFiles/Personal.dir/GridGraph.cpp.obj CMakeFiles/Personal.dir/Tank.cpp.obj CMakeFiles/Personal.dir/PathFinding.cpp.obj CMakeFiles/Personal.dir/CustomView.cpp.obj | C$:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Core.a || Personal_autogen Personal_autogen_timestamp_deps
+build Personal.exe: CXX_EXECUTABLE_LINKER__Personal_Debug CMakeFiles/Personal.dir/Personal_autogen/mocs_compilation.cpp.obj CMakeFiles/Personal.dir/main.cpp.obj CMakeFiles/Personal.dir/GridGraph.cpp.obj CMakeFiles/Personal.dir/Tank.cpp.obj CMakeFiles/Personal.dir/PathFinding.cpp.obj CMakeFiles/Personal.dir/CustomView.cpp.obj CMakeFiles/Personal.dir/PathfindingBFS.cpp.obj | C$:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Core.a || Personal_autogen Personal_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = C:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a  C:/Qt/6.7.2/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Personal.dir

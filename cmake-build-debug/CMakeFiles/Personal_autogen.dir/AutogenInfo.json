@@ -326,6 +326,12 @@
 			"EWIEGA46WW/moc_PathFinding.cpp",
 			null
 		],
+		[
+			"D:/Personal/PathfindingBFS.h",
+			"MU",
+			"EWIEGA46WW/moc_PathfindingBFS.cpp",
+			null
+		],
 		[ "D:/Personal/Tank.h", "MU", "EWIEGA46WW/moc_Tank.cpp", null ],
 		[ "D:/Personal/main.h", "MU", "EWIEGA46WW/moc_main.cpp", null ]
 	],
@@ -404,6 +410,7 @@
 		[ "D:/Personal/CustomView.cpp", "MU", null ],
 		[ "D:/Personal/GridGraph.cpp", "MU", null ],
 		[ "D:/Personal/PathFinding.cpp", "MU", null ],
+		[ "D:/Personal/PathfindingBFS.cpp", "MU", null ],
 		[ "D:/Personal/Tank.cpp", "MU", null ],
 		[ "D:/Personal/main.cpp", "MU", null ]
 	],

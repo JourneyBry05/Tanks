@@ -23,7 +23,8 @@ add_executable(Personal main.cpp
         Tank.cpp
         Pathfinding.cpp
         CustomView.cpp
-        CustomView.cpp)
+        CustomView.cpp
+        PathfindingBFS.cpp)
 
 # Enlaza las bibliotecas de Qt necesarias
 target_link_libraries(Personal Qt6::Widgets)

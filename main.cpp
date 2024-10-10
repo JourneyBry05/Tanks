@@ -3,15 +3,17 @@
 #include <QtWidgets/QGraphicsScene>
 #include <QtGui/QScreen>
 #include <QtGui/QMouseEvent>
+#include <QGraphicsSceneMouseEvent>
+#include <QRandomGenerator>
 #include "GridGraph.h"
 #include "Tank.h"
 #include "Pathfinding.h"
+#include "PathfindingBFS.h"
 #include "CustomView.h"
 
-Tank* selectedTank = nullptr;  // Variable global para almacenar el tanque seleccionado
-
-void handleTankSelection(Tank* tank) {
-    selectedTank = tank;  // Asignar el tanque seleccionado
+// Función para manejar la selección del tanque
+void handleTankSelection(Tank* tank, CustomView& view) {
+    view.selectTank(tank);  // Usar el método selectTank de CustomView
     qDebug() << "Tanque seleccionado";  // Mensaje para verificar que el tanque ha sido seleccionado
 }
 
@@ -70,14 +72,40 @@ int main(int argc, char *argv[]) {
     graph.addTank(player2TankLight1, 9, 29, scene, cellWidth, cellHeight);
     graph.addTank(player2TankLight2, 12, 28, scene, cellWidth, cellHeight);
 
-    // Conectar la señal de selección del tanque (solo para los tanques rojos)
-    QObject::connect(&player1TankRed1, &Tank::tankSelected, handleTankSelection);
-    QObject::connect(&player1TankRed2, &Tank::tankSelected, handleTankSelection);
-
     // Crear una vista personalizada para manejar los clics del ratón
     CustomView view(&scene, graph, cellWidth, cellHeight);
     view.setWindowTitle("Tank Attack!");
     view.showFullScreen();
+
+    // Conectar la señal de selección del tanque (para los tanques rojos)
+    QObject::connect(&player1TankRed1, &Tank::tankSelected, [&view](Tank* tank) {
+        handleTankSelection(tank, view);
+    });
+    QObject::connect(&player1TankRed2, &Tank::tankSelected, [&view](Tank* tank) {
+        handleTankSelection(tank, view);
+    });
+
+    // Conectar la señal de selección del tanque (para los tanques amarillos)
+    QObject::connect(&player2TankYellow1, &Tank::tankSelected, [&view](Tank* tank) {
+        handleTankSelection(tank, view);
+    });
+    QObject::connect(&player2TankYellow2, &Tank::tankSelected, [&view](Tank* tank) {
+        handleTankSelection(tank, view);
+    });
+
+    // Conectar la señal de selección del tanque (para los tanques azules y celestes)
+    QObject::connect(&player1TankBlue1, &Tank::tankSelected, [&view](Tank* tank) {
+        handleTankSelection(tank, view);
+    });
+    QObject::connect(&player1TankBlue2, &Tank::tankSelected, [&view](Tank* tank) {
+        handleTankSelection(tank, view);
+    });
+    QObject::connect(&player2TankLight1, &Tank::tankSelected, [&view](Tank* tank) {
+        handleTankSelection(tank, view);
+    });
+    QObject::connect(&player2TankLight2, &Tank::tankSelected, [&view](Tank* tank) {
+        handleTankSelection(tank, view);
+    });
 
     return app.exec();
 }
