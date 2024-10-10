@@ -1,12 +1,13 @@
 #include "Tank.h"
-#include "Pathfinding.h"
-#include "PathfindingBFS.h"
+#include "GridGraph.h"
 #include <QtWidgets/QGraphicsScene>
 #include <QRandomGenerator>
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsPixmapItem>
 #include <QDebug>
+#include <QLabel>
 #include <QThread>
-#include <QApplication>
+
 
 extern std::vector<QGraphicsLineItem*> routeLines;  // Declaración externa para usar la variable global
 

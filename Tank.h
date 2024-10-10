@@ -1,3 +1,4 @@
+// Tank.h
 #ifndef TANK_H
 #define TANK_H
 
@@ -5,7 +6,10 @@
 #include <QPixmap>
 #include <QGraphicsPixmapItem>
 #include <QObject>
-#include "GridGraph.h"
+#include <vector>
+
+// Declaración adelantada de GridGraph
+class GridGraph;
 
 class Tank : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
@@ -16,7 +20,7 @@ public:
     // Metodo para mostrar el tanque en la ventana
     void display(QGraphicsScene &scene, int row, int col, int cellWidth, int cellHeight);
 
-    // Metodo para mover el tanque, ahora con la opción de usar BFS
+    // Metodo para mover el tanque
     void moveTo(GridGraph &graph, int targetRow, int targetCol, QGraphicsScene &scene, int cellWidth, int cellHeight, bool useBFS);
 
     // Eventos de clic

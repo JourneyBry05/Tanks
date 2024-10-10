@@ -19,10 +19,14 @@ protected:
     void mousePressEvent(QMouseEvent* event) override;
 
 private:
-    GridGraph& graph;     // Referencia al grafo
-    int cellWidth;        // Ancho de la celda
-    int cellHeight;       // Alto de la celda
-    Tank* selectedTank;   // Puntero al tanque seleccionado
+    GridGraph& graph;             // Referencia al grafo
+    int cellWidth;                // Ancho de la celda
+    int cellHeight;               // Alto de la celda
+    Tank* selectedTank;           // Puntero al tanque seleccionado
+    std::vector<QGraphicsLineItem*> routeLines; // Líneas para mostrar la ruta
+
+    void clearRouteLines();       // Método para borrar las líneas de la ruta
+    void drawRoute(const std::vector<int>& path); // Método para dibujar la ruta
 };
 
 #endif // CUSTOMVIEW_H

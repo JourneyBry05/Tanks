@@ -1,10 +1,15 @@
 #ifndef GRIDGRAPH_H
 #define GRIDGRAPH_H
 
-#include <QtWidgets/QGraphicsScene>
+#include <iostream>
+#include <cstring>
 #include <vector>
-
-class Tank;  // Declaración adelantada para evitar dependencia circular
+#include <queue>
+#include <QtWidgets/QGraphicsScene>
+#include <QtGui/QPen>
+#include <QtGui/QBrush>
+#include <QtCore/QRandomGenerator>
+#include "Tank.h"
 
 class GridGraph {
 private:
@@ -13,26 +18,27 @@ private:
     int** adjMatrix;
 
 public:
-    // Constructor y destructor
     GridGraph(int rows, int cols);
     ~GridGraph();
 
-    // Métodos del grafo
+    // Métodos getters
+    int getRows() const { return rows; }
+    int getCols() const { return cols; }
+    int** getAdjMatrix() const { return adjMatrix; }
+
     void addEdge(int u, int v);
     void generateConnections();
     void drawGrid(QGraphicsScene& scene, int screenWidth, int screenHeight, float scaleFactor);
     void generateObstacles(float obstacleDensity);
     void addTank(Tank &tank, int row, int col, QGraphicsScene &scene, int cellWidth, int cellHeight);
+    bool isNavigable() const;
 
-    // Obtener filas y columnas
-    int getCols() const;
-    int getRows() const;
+    // Métodos de búsqueda
+    std::vector<int> bfs(int startNode, int targetNode);
+    std::vector<int> dijkstra(int startNode, int targetNode);
 
-    // Verificar si una celda es un obstáculo
     bool isObstacle(int row, int col) const;
 
-    // Acceso a la matriz de adyacencia
-    int** getAdjMatrix() const;
 
 private:
     void dfs(int node, bool* visited) const;

@@ -10,6 +10,8 @@
 #include "Pathfinding.h"
 #include "PathfindingBFS.h"
 #include "CustomView.h"
+#include <QApplication>
+
 
 // Función para manejar la selección del tanque
 void handleTankSelection(Tank* tank, CustomView& view) {
